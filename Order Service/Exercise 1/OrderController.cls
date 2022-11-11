@@ -16,7 +16,12 @@ public class OrderController {
     Id YODA_FOR_LIFE = FDService.ItemService.getInstance().get(
     					            FDService.SearchRequest.getInstance()
         				          .equals (OrderApi__Item__c.Name,'Yoda for like Membership')
-					              )[0].Id;; 
+					              )[0].Id;
+	
+    FDService.SalesOrder so;
+
+	{
+	}
         
 
 }
