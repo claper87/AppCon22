@@ -19,9 +19,20 @@ public class OrderController {
 					              )[0].Id;
 	
     FDService.SalesOrder so;
-
-	{
-	}
+    FDService.OrderService orderService;
+    
+    {
+       orderService = FDService.OrderService.getInstance();
+    }
+    
+    /* TO-DO
+     * Given a contact Id leverage orderService 
+     * to instantiate an order, associated it to 
+     * the contact and commit it dabatabase
+    */
+    public void createOrder(Id contactId){
+        
+    }
         
 
 }
