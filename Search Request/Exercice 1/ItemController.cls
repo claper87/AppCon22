@@ -4,8 +4,8 @@ public class ItemController {
     public void getAllItems(){
         List<FDService.Item> items = FDService.ItemService.getInstance()
             											  .get(
-                                        // TO-DO: add FDService.SearchRequest instance
-                                     );
+                                                            // TO-DO: add FDService.SearchRequest instance
+                                                           );
         return items;
     }
 
