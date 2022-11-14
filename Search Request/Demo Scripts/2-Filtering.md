@@ -5,7 +5,7 @@ It's great that you asked! Depending on your requirement you have several method
 method | parameters | description | example
 --- | --- | --- | --- |
 `equals()` | Schema.SObjectField, Object | given the APIName of a field it will perform an exact match against the value | `equals(OrderApi__Item__c.Name,'Collapsible Water Bottle')`
-`filters()` | ab | ab
+`filter()` | String | given a string represantation of the where clause performs an exact match against the criteria | `filter('Name = \'Collapsible Water Bottle\''`
 `contains()`| ab | ab
 
 `FDService.SearchRequest.getInstance()`
