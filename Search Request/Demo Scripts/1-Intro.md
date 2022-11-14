@@ -1,4 +1,4 @@
-## All right! let's get to the code.
+## All right! Let's get to the code.
 
 Instantiating the Search engine is easy and quick, just one statement is needed:
 
