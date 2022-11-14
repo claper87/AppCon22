@@ -43,3 +43,14 @@ System.debug('how many  sales order were queried >> '+items.size();
 2. Copy the code shown
 3. Using the developer console (or your preferred IDE), create the ItemController class
 4. Paste the code & complete the to-dos.
+
+
+### follow these steps run your code 
+```
+ItemController icontroller = new ItemController();
+List<FDService.Item> items = icontroller.getAllItems();
+system.debug('retrieved items count: '+items.size());
+for(FDService.Item item : items){
+    system.debug(item.name);
+}
+```
