@@ -10,9 +10,12 @@ With the above statement you're telling the platform several things:
 2. You want to select all fields for that object.
 3. You want to cap your results at 2,000 records.
 
-However you the one key information that you are missing with *which object* you want to perform the search on.
+However you are missing on important information: **which object you want to perform the search on?**
 * Are you searching for Items?
 * Are you searching for Sales Orders?
+* What are you searching for?
+
+To answer this question we will need to wrap the Search Request inside a Service.
 
 
 
