@@ -25,7 +25,9 @@ System.debug('how many items were queried >> '+items.size();
 System.debug('What's the name of the first Item on the list? >> '+items[0].size();
 ```
 
-FDService.ItemService, is a service class that defines a `get()` method which can accept a SearchRequest instance to fetch Items. Alright are you ready for another example? Say you want to search all Sales Order within your org, here's the snippet of code that will get you there: 
+*FDService.ItemService*, is a service class that defines a `get()` method which can accept a SearchRequest instance to fetch Items. 
+
+Alright are you ready for another example? Say you want to search all Sales Order within your org, here's the snippet of code that will get you there: 
 
 ```
 List<FDService.SalesOrder> items = FDService.OrderService.getInstance().get(
