@@ -9,10 +9,14 @@ This repository cover a series of hands-on exercices that will help you master t
 * OrderPaymentService
 
 ### What is FDService?
-FDService is a namespace included within the core packages of Fonteva. It include serveral classes that act as wrappers and/or services. Some of the classes have been annotated as Global, making them accesible to you for use. IF you have access to a Fonteva Instance running version 20Spring  or higher
+FDService is a namespace included within the core packages of Fonteva. It has serveral classes that act as wrappers and/or services. Some of the classes have been annotated as Global, making them accesible to you for use. IF you have access to a Fonteva Instance running version 20Spring  or higher you will be able to follow alogn and practice all the concepts shared here.
 
 ## SearchRequest
-The FDService.Searchg Request controls every aspect of querying, including fields to select, number of records to return, filtering and sort order.
+The SearchRequest class controls every aspect of querying, including fields to select, number of records to return, filtering and sort order. Here are some key concepts for you:
+
+* This feature uses SOQL under the hood.
+* By default the results will be capped at 2,000. However, you can call the `soqlLimit(integer x)` function to change this.
+* The FDSPR20 Governor Limits will.
 
 
 
