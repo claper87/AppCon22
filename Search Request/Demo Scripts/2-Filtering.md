@@ -2,9 +2,9 @@
 
 It's great that you asked! Depending on your requirement you have several methods available to you, in order to reduce the number of records retrieved by your search.
 
-method | parameters | description
+method | parameters | description | example
 --- | --- | ---
-`equals()` | ab | ab
+`equals()` | Schema.SObjectField, Object | given the APIName of a field it will perform an exact match against the value | `equals(OrderApi__Item__c.Name,'Collapsible Water Bottle')
 `filters()` | ab | ab
 `contains()`| ab | ab
 
