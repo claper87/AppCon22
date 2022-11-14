@@ -15,10 +15,13 @@ However you are missing on important information: **which object you want to per
 * Are you searching for Sales Orders?
 * What are you searching for?
 
-To answer this question we need to wrap the Search Request inside a Service class. 
+To answer this question we need to wrap the Search Request inside a Service class. "**A Service Class** knows how to execute actions given an object wrapper or a search request instance."
 
-"**A Service Class** knows how to execute actions given an object wrapper or a search request instance."
-
+```
+List<FDService.Item> items = FDService.ItemService.getInstance().get(
+    FDService.SearchRequest.getInstance()
+);
+```
 
 
 
