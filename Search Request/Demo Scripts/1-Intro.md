@@ -46,6 +46,8 @@ System.debug('how many  sales order were queried >> '+items.size();
 
 
 ### follow these steps run your code 
+1. Open the Anonymous window, within the developer console. Copy & Pase the code below and click "execute"
+2. Ensure to inspect the logs, so that you can see how many items were retrieved and the name of each item.
 ```
 ItemController icontroller = new ItemController();
 List<FDService.Item> items = icontroller.getAllItems();
