@@ -16,7 +16,8 @@ However you are missing on important information: **which object you want to per
 * What are you searching for?
 
 To answer this question we need to wrap the Search Request inside a Service class. 
-⋅⋅⋅"**A Service Class** knows how to execute actions given an object wrapper or a search request instance."
+
+"**A Service Class** knows how to execute actions given an object wrapper or a search request instance."
 
 
 
