@@ -15,7 +15,7 @@ However you are missing on important information: **which object you want to per
 * Are you searching for Sales Orders?
 * What are you searching for?
 
-To answer this question we will need to wrap the Search Request inside a Service.
+To answer this question we will need to wrap the Search Request inside a Service. **A Service Class** knows how to execute actions given an object wrapper or a search request instance.
 
 
 
