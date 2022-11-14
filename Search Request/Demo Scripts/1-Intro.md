@@ -36,3 +36,10 @@ List<FDService.SalesOrder> items = FDService.OrderService.getInstance().get(
 );
 System.debug('how many  sales order were queried >> '+items.size();
 ```
+
+## Now is your turn to practice
+
+1. Go to https://bit.ly/3tj3XUy
+2. Copy the code shown
+3. Using the developer console (or your preferred IDE), create the ItemController class
+4. Paste the code & complete the to-dos.
