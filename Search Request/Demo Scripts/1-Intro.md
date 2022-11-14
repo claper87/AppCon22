@@ -21,8 +21,15 @@ To answer this question we need to wrap the Search Request inside a Service clas
 List<FDService.Item> items = FDService.ItemService.getInstance().get(
     FDService.SearchRequest.getInstance()
 );
-System.debug('how many items where queried >> '+items.size();
+System.debug('how many items were queried >> '+items.size();
 System.debug('What's the name of the first Item on the list? >> '+items[0].size();
 ```
 
-FDService.ItemService, is a service class that defines a `get()` which can accept a SearchRequest instance to fetch Items. 
+FDService.ItemService, is a service class that defines a `get()` method which can accept a SearchRequest instance to fetch Items. Alright are you ready for another example? Say you want to search all Sales Order within your org, here's the snippet of code that will get you there: 
+
+```
+List<FDService.SalesOrder> items = FDService.OrderService.getInstance().get(
+    FDService.SearchRequest.getInstance()
+);
+System.debug('how many  sales order were queried >> '+items.size();
+```
