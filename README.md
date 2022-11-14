@@ -1,3 +1,3 @@
 # FDServices - The Hands Ons
 
-How to use this.
+### Want to get hands-on practice? You're in the right place
