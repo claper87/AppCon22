@@ -16,7 +16,7 @@ The SearchRequest class controls every aspect of querying, including fields to s
 
 * This feature uses SOQL under the hood.
 * By default the results will be capped at 2,000. However, you can call the `soqlLimit(integer x)` function to change this.
-* The FDSPR20 Governor Limits will.
+* The FDService namespace's Governor Limits will be used first up.
 
 
 
