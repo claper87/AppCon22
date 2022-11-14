@@ -15,20 +15,14 @@ However you are missing on important information: **which object you want to per
 * Are you searching for Sales Orders?
 * What are you searching for?
 
-To answer this question we need to wrap the Search Request inside a Service class. **A Service Class** knows how to execute actions given an object wrapper or a search request instance.
+To answer this question we need to wrap the Search Request inside a Service class. **A Service Class** knows how to execute actions given an object wrapper or a search request instance. Let's say for example you want to query a List of all the items configured in your Fonteva Org, you would do something like this:
 
 ```
 List<FDService.Item> items = FDService.ItemService.getInstance().get(
     FDService.SearchRequest.getInstance()
 );
+System.debug('how many items where queried >> '+items.size();
+System.debug('What's the name of the first Item on the list? >> '+items[0].size();
 ```
 
-
-
-
-
-List<FDService.Item> items = FDService.ItemService.getInstance().get(
-    FDService.SearchRequest.getInstance()
-);
-system.debug('size >> '+items.size());
-system.debug('name >> '+items[0].name);
+FDService.ItemService, is a service class that defines a `get()` which can accept a SearchRequest instance to fetch Items. 
