@@ -8,4 +8,8 @@ This repository cover a series of hands-on exercices that will help you master t
 * OrderService
 * OrderPaymentService
 
+## SearchRequest
+The FDService.Searchg Request controls every aspect of querying, including fields to select, number of records to return, filtering and sort order.
+
+
 
