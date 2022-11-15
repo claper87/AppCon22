@@ -8,13 +8,24 @@ method | parameters | description | example
 `filter()` | String | given a string represantation of the where clause performs an exact match against the criteria | `filter('Name = \'Collapsible Water Bottle\'')`
 `contains()`| Schema.SObjectField, List<Object> | given the APIName of a field it will perform an exact match against the values | `contains(OrderApi__Item__c.Name, new List<Object>{'Laptop Backpack', 'leather Backpack'})`
 
-`FDService.SearchRequest.getInstance()`
+Here's an example; the next three statements do the same: Search for an Item called "Collapsible Water Bottle"
 
-With the above statement you're telling the platform several things:
-
-1. You want to search within an object.
-2. You want to select all fields for that object.
-3. You want to cap your results at 2,000 records.
+```
+    List<FDService.Item> items = FDService.ItemService.getInstance().get(
+    FDService.SearchRequest.getInstance().equals (OrderApi__Item__c.Name,'Collapsible Water Bottle')
+);
+    ```
+    
+```
+    List<FDService.Item> items = FDService.ItemService.getInstance().get(
+    FDService.SearchRequest.getInstance().filter('Name = \'Collapsible Water Bottle\'')
+);
+    ```
+ ```   
+    List<FDService.Item> items = FDService.ItemService.getInstance().get(
+    FDService.SearchRequest.getInstance().contains(OrderApi__Item__c.Name, new List<Object>{'Collapsible Water Bottle'})
+);
+    ```
 
 However you are missing on important information: **which object you want to perform the search on?**
 * Are you searching for Items?
