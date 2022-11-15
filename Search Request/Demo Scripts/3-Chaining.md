@@ -16,7 +16,7 @@ List<FDService.SalesOrder> salesOrders = FDService.OrderService.getInstance().ge
 
 system.debug('count of open orders '+salesOrders.size());
 ```
-### If you want to limit your results to only the first 10 orders that meet the criteria, then chain the `soqlLimits()` method
+#### If you want to limit your results to only the first 10 orders that meet the criteria, then chain the `soqlLimits()` method
 ```
 Schema.SObjectField STATUS_FIELD = OrderApi__Sales_Order__c.OrderApi__Status__c;
 String STATUS = 'Open';
