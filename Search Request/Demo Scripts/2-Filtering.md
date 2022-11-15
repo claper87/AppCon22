@@ -12,17 +12,20 @@ Here's an example; the next three statements do the same: Search for an Item cal
 
 ```
     List<FDService.Item> items = FDService.ItemService.getInstance().get(
-    FDService.SearchRequest.getInstance().equals (OrderApi__Item__c.Name,'Collapsible Water Bottle'));
+        FDService.SearchRequest.getInstance().equals (OrderApi__Item__c.Name,'Collapsible Water Bottle')
+    );
 ```
     
 ```
     List<FDService.Item> items = FDService.ItemService.getInstance().get(
-    FDService.SearchRequest.getInstance().filter('Name = \'Collapsible Water Bottle\''));
+        FDService.SearchRequest.getInstance().filter('Name = \'Collapsible Water Bottle\'')
+    );
 ```
     
 ```   
     List<FDService.Item> items = FDService.ItemService.getInstance().get(
-    FDService.SearchRequest.getInstance().contains(OrderApi__Item__c.Name, new List<Object>{'Collapsible Water Bottle'}));
+        FDService.SearchRequest.getInstance().contains(OrderApi__Item__c.Name, new List<Object>{'Collapsible Water Bottle'})
+    );
 ```
 
 #### Using variables within the statement
@@ -30,7 +33,8 @@ Here's an example; the next three statements do the same: Search for an Item cal
 ```
     String itemName = '\''+'Collapsible Water Bottle'+'\'';
     List<FDService.Item> items = FDService.ItemService.getInstance().get(
-    FDService.SearchRequest.getInstance().filter('Name = '+itemName));   
+        FDService.SearchRequest.getInstance().filter('Name = '+itemName)
+    );   
 ```
     
 To answer this question we need to wrap the Search Request inside a Service class. **A Service Class** knows how to execute actions given an object wrapper or a search request instance. Let's say for example you want to query a List of all the items configured in your Fonteva Org, you would do something like this:
