@@ -25,11 +25,14 @@ Here's an example; the next three statements do the same: Search for an Item cal
     FDService.SearchRequest.getInstance().contains(OrderApi__Item__c.Name, new List<Object>{'Collapsible Water Bottle'}));
 ```
 
-However you are missing on important information: **which object you want to perform the search on?**
-* Are you searching for Items?
-* Are you searching for Sales Orders?
-* What are you searching for?
-
+But what if you want to use a variable instead of embedding values directly into the statement? Look below
+    
+```
+    String itemName = '\''+'Collapsible Water Bottle'+'\'';
+    List<FDService.Item> items = FDService.ItemService.getInstance().get(
+    FDService.SearchRequest.getInstance().filter('Name = '+itemName));   
+```
+    
 To answer this question we need to wrap the Search Request inside a Service class. **A Service Class** knows how to execute actions given an object wrapper or a search request instance. Let's say for example you want to query a List of all the items configured in your Fonteva Org, you would do something like this:
 
 ```
