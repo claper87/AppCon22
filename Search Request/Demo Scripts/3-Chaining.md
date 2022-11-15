@@ -1,53 +1,35 @@
-## Chaining
+## Chaining Statements Together
 
 By know you have a solid understanding of how the SearchRequest object works. We've build it so it's easy to use and performant. You can combine several function by chaning them together.
 
 For example, say you want to search for Open Sales Orders, with a balance due arranged by created date ascendently.
 
 ```
-    List<FDService.Item> items = FDService.ItemService.getInstance().get(
-        FDService.SearchRequest.getInstance().equals (OrderApi__Item__c.Name,'Collapsible Water Bottle')
-    );
+Schema.SObjectField STATUS_FIELD = OrderApi__Sales_Order__c.OrderApi__Status__c;
+String STATUS = 'Open';
+List<FDService.SalesOrder> salesOrders = FDService.OrderService.getInstance().get(
+        FDService.SearchRequest.getInstance()
+        .equals(STATUS_FIELD, STATUS)
+        .filter('OrderApi__Balance_Due__c  > 0')
+    	.orderBy('CreatedDate ASC')
+    ); 
+
+system.debug('count of open orders '+salesOrders.size());
 ```
-    
+### If you want to limit your results to only the first 10 orders that meet the criteria, then chain the `soqlLimits()` method
 ```
-    List<FDService.Item> items = FDService.ItemService.getInstance().get(
-        FDService.SearchRequest.getInstance().filter('Name = \'Collapsible Water Bottle\'')
-    );
+Schema.SObjectField STATUS_FIELD = OrderApi__Sales_Order__c.OrderApi__Status__c;
+String STATUS = 'Open';
+List<FDService.SalesOrder> salesOrders = FDService.OrderService.getInstance().get(
+        FDService.SearchRequest.getInstance()
+        .equals(STATUS_FIELD, STATUS)
+        .filter('OrderApi__Balance_Due__c  > 0')
+    	.orderBy('CreatedDate ASC')
+    	.soqlLimit(10)
+    ); 
+
+system.debug('count of open orders '+salesOrders.size());
 ```
-    
-```   
-    List<FDService.Item> items = FDService.ItemService.getInstance().get(
-        FDService.SearchRequest.getInstance().contains(OrderApi__Item__c.Name, new List<Object>{'Collapsible Water Bottle'})
-    );
-```
-#### Using variables within the statement
-    
-```
-    String itemName = '\''+'Collapsible Water Bottle'+'\'';
-    List<FDService.Item> items = FDService.ItemService.getInstance().get(
-        FDService.SearchRequest.getInstance().filter('Name = '+itemName)
-    );   
-```
-### Using multiple filter criteria
-    
-```
-    Decimal MIN_PRICE = 20;
-    Decimal MAX_PRICE = 100;
-    List<FDService.Item> items = FDService.ItemService.getInstance().get(
-        FDService.SearchRequest.getInstance().filter('OrderApi__Price__c = '+MIN_PRICE+' AND OrderApi__Price__c < '+MAX_PRICE)
-    );   
-```
-### Using multiple filter criteria with an iterator
-Another way to filter is by using iterators. This is a great approach when you need to filter base on multiple critera while keeping your code readable and elegant.
-```
-    Decimal MIN_PRICE = 20;
-    Decimal MAX_PRICE = 100;
-    List<Object> tokens = new List<Object>{MIN_PRICE,MAX_PRICE};
-    List<FDService.Item> items = FDService.ItemService.getInstance().get(
-        FDService.SearchRequest.getInstance().filter('OrderApi__Price__c = {0} AND OrderApi__Price__c < {1}',tokens)
-    );   
-```    
 
 ## Now is your turn to practice
 
