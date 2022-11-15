@@ -27,7 +27,6 @@ Here's an example; the next three statements do the same: Search for an Item cal
         FDService.SearchRequest.getInstance().contains(OrderApi__Item__c.Name, new List<Object>{'Collapsible Water Bottle'})
     );
 ```
-
 #### Using variables within the statement
     
 ```
@@ -36,28 +35,26 @@ Here's an example; the next three statements do the same: Search for an Item cal
         FDService.SearchRequest.getInstance().filter('Name = '+itemName)
     );   
 ```
+### Using multiple filter criteria
     
-To answer this question we need to wrap the Search Request inside a Service class. **A Service Class** knows how to execute actions given an object wrapper or a search request instance. Let's say for example you want to query a List of all the items configured in your Fonteva Org, you would do something like this:
-
 ```
-List<FDService.Item> items = FDService.ItemService.getInstance().get(
-    FDService.SearchRequest.getInstance()
-);
-System.debug('how many items were queried >> '+items.size();
-System.debug('What's the name of the first Item on the list? >> '+items[0].size();
+    Decimal MIN_PRICE = 20;
+    Decimal MAX_PRICE = 100;
+    List<FDService.Item> items = FDService.ItemService.getInstance().get(
+        FDService.SearchRequest.getInstance().filter('OrderApi__Price__c = '+MIN_PRICE+' AND OrderApi__Price__c < '+MAX_PRICE)
+    );   
 ```
-
-*FDService.ItemService*, is a service class that defines a `get()` method which can accept a SearchRequest instance to fetch Items. 
-
-
-Alright are you ready for another example? Say you want to search all Sales Order within your org, here's the snippet of code that will get you there: 
-
+### Using multiple filter criteria
+Another way to filter is by using iterators. This is a great approach when you need to filter base on multiple critera while keeping your code readable and elegant.
 ```
-List<FDService.SalesOrder> items = FDService.OrderService.getInstance().get(
-    FDService.SearchRequest.getInstance()
-);
-System.debug('how many  sales order were queried >> '+items.size();
-```
+    Decimal MIN_PRICE = 20;
+    Decimal MAX_PRICE = 100;
+    ***List<Object> tokens = new List<Object>{MIN_PRICE,MAX_PRICE};***
+    List<FDService.Item> items = FDService.ItemService.getInstance().get(
+        FDService.SearchRequest.getInstance().filter('OrderApi__Price__c = {0} AND OrderApi__Price__c < {1}',***tokens***)
+    );   
+```    
+
 ## Now is your turn to practice
 
 1. Go to https://bit.ly/3tj3XUy
