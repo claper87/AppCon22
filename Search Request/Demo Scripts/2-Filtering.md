@@ -25,7 +25,7 @@ Here's an example; the next three statements do the same: Search for an Item cal
     FDService.SearchRequest.getInstance().contains(OrderApi__Item__c.Name, new List<Object>{'Collapsible Water Bottle'}));
 ```
 
-But what if you want to use a variable instead of embedding values directly into the statement? Look below
+#### Using variables within the statement
     
 ```
     String itemName = '\''+'Collapsible Water Bottle'+'\'';
