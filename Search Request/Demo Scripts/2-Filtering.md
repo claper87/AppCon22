@@ -57,7 +57,7 @@ Another way to filter is by using iterators. This is a great approach when you n
 
 ## Now is your turn to practice
 
-1. Go to https://bit.ly/3G3WAYM
+1. Go to https://bit.ly/3G3WAYM and https://bit.ly/3thLsjv
 2. Copy the code shown
 3. Using the developer console (or your preferred IDE), create the ItemController class
 4. Paste the code & complete the to-dos.
