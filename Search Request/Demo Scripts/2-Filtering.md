@@ -12,20 +12,18 @@ Here's an example; the next three statements do the same: Search for an Item cal
 
 ```
     List<FDService.Item> items = FDService.ItemService.getInstance().get(
-    FDService.SearchRequest.getInstance().equals (OrderApi__Item__c.Name,'Collapsible Water Bottle')
-);
-    ```
+    FDService.SearchRequest.getInstance().equals (OrderApi__Item__c.Name,'Collapsible Water Bottle'));
+```
     
 ```
     List<FDService.Item> items = FDService.ItemService.getInstance().get(
-    FDService.SearchRequest.getInstance().filter('Name = \'Collapsible Water Bottle\'')
-);
-    ```
- ```   
+    FDService.SearchRequest.getInstance().filter('Name = \'Collapsible Water Bottle\''));
+```
+    
+```   
     List<FDService.Item> items = FDService.ItemService.getInstance().get(
-    FDService.SearchRequest.getInstance().contains(OrderApi__Item__c.Name, new List<Object>{'Collapsible Water Bottle'})
-);
-    ```
+    FDService.SearchRequest.getInstance().contains(OrderApi__Item__c.Name, new List<Object>{'Collapsible Water Bottle'}));
+```
 
 However you are missing on important information: **which object you want to perform the search on?**
 * Are you searching for Items?
