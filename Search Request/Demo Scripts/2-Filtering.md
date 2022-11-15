@@ -44,20 +44,20 @@ Here's an example; the next three statements do the same: Search for an Item cal
         FDService.SearchRequest.getInstance().filter('OrderApi__Price__c = '+MIN_PRICE+' AND OrderApi__Price__c < '+MAX_PRICE)
     );   
 ```
-### Using multiple filter criteria
+### Using multiple filter criteria with an iterator
 Another way to filter is by using iterators. This is a great approach when you need to filter base on multiple critera while keeping your code readable and elegant.
 ```
     Decimal MIN_PRICE = 20;
     Decimal MAX_PRICE = 100;
-    ***List<Object> tokens = new List<Object>{MIN_PRICE,MAX_PRICE};***
+    List<Object> tokens = new List<Object>{MIN_PRICE,MAX_PRICE};
     List<FDService.Item> items = FDService.ItemService.getInstance().get(
-        FDService.SearchRequest.getInstance().filter('OrderApi__Price__c = {0} AND OrderApi__Price__c < {1}',***tokens***)
+        FDService.SearchRequest.getInstance().filter('OrderApi__Price__c = {0} AND OrderApi__Price__c < {1}',tokens)
     );   
 ```    
 
 ## Now is your turn to practice
 
-1. Go to https://bit.ly/3tj3XUy
+1. Go to https://bit.ly/3G3WAYM
 2. Copy the code shown
 3. Using the developer console (or your preferred IDE), create the ItemController class
 4. Paste the code & complete the to-dos.
@@ -68,9 +68,10 @@ Another way to filter is by using iterators. This is a great approach when you n
 2. Ensure to inspect the logs, so that you can see how many items were retrieved and the name of each item.
 ```
 ItemController icontroller = new ItemController();
-List<FDService.Item> items = icontroller.getAllItems();
+List<FDService.Item> items = icontroller.getItemsByName('Collapsible Water Bottle');
 system.debug('retrieved items count: '+items.size());
 for(FDService.Item item : items){
     system.debug(item.name);
+    system.debug(item.OrderApi__Price__c);
 }
 ```
